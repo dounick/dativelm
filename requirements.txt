@@ -1,0 +1,11 @@
+datasets==3.2.0
+evaluate==0.4.3
+minicons==0.3.14
+nltk==3.9.1
+numpy==2.2.3
+pandas==2.2.3
+spacy==3.7.6
+tokenizers==0.21.0
+torch==2.5.1
+tqdm==4.66.6
+transformers==4.46.2

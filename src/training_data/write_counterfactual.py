@@ -3,14 +3,13 @@ import pandas as pd
 import csv
 import os
 
-nonditrans = 'data/datives/nonditransitives/non-ditransitives_'
-nondative = 'data/datives/nondatives/non-datives_'
+nonditrans = 'data/train/nonditransitives/length_manipulated.csv'
+nondative = 'data/train/nondatives/non-datives.csv'
 output_file = 'data/training_sets/counterfactual/train.txt'
-loose_pos = 'data/datives/babylm/loose_alternant_of_pos.csv'
-loose_dos = 'data/datives/babylm/loose_alternant_of_dos.csv'
+os.mkdir('data/training_sets/counterfactual')
+loose_pos = 'data/train/datives/alternant_of_pos.csv'
+loose_dos = 'data/train/datives/alternant_of_dos.csv'
 
-#loose_pos = pd.read_csv('data/datives/babylm/loose_alternant_of_pos.csv')
-#loose_dos = pd.read_csv('data/datives/babylm/loose_alternant_of_dos.csv')
 
 max_tokens = 86418794
 current_tokens = 0
@@ -45,17 +44,15 @@ print(current_tokens)
 # write non-datives
 
 current_nondatives = 0
-for i in range(10):
-    nondative_path = nondative + str(i) + '.csv'
-    with open(nondative_path, mode='r', newline='') as csvfile:
-        csvreader = csv.DictReader(csvfile)
-        with open(output_file, mode='a') as txtfile:
-            for row in csvreader:
-                if(current_tokens > max_tokens):
-                    break
-                txtfile.write(row['sentence'] + '\n')
-                current_tokens += int(row['token_count'])
-                current_nondatives += 1
+with open(nondative, mode='r', newline='') as csvfile:
+    csvreader = csv.DictReader(csvfile)
+    with open(output_file, mode='a') as txtfile:
+        for row in csvreader:
+            if(current_tokens > max_tokens):
+                break
+            txtfile.write(row['sentence'] + '\n')
+            current_tokens += int(row['token_count'])
+            current_nondatives += 1
 
 print(current_nondatives)
 print(current_tokens)
