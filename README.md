@@ -25,3 +25,4 @@ bash scripts/write_train.sh
 ```
 bash scripts/train_autoreg.sh DATASET BASE_MODEL MODEL_NAME LR SEED EPOCHS
 ```
+Modify scripts/train_autoreg.sh to specify GPU and huggingface token.
