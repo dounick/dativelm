@@ -20,7 +20,7 @@ def main(args):
         **dataset_args,
     )
 
-    raw_datasets.push_to_hub(f"qing-yao/{dataset_name}", token=hf_token)
+    raw_datasets.push_to_hub(f"username/{dataset_name}", token=hf_token)
 
 
 if __name__ == "__main__":

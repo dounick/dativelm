@@ -109,7 +109,6 @@ class SentencePieceUnigramTokenizer(BaseTokenizer):
     Custom SentencePiece Unigram Tokenizer with NMT, NKFC, spaces and lower-casing characters normalization
     Represents the Unigram algorithm, with the pretokenization used by SentencePiece
 
-    Modified slightly by Kanishka to add a bos_token to the vocabulary.
     """
 
     def __init__(
