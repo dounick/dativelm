@@ -1,6 +1,9 @@
 # dativelm
-Code for the paper ----
+Code and data for the paper **Both Direct and Indirect Evidence Contribute to Dative Alternation Preferences in Language Models**
 
+For experiments and analyses, see the analysis folder.
+
+For data processing and training, see the following:
 1. Download BabyLM corpus without QED subtitles with 
 ```
 bash scripts/get_babylm.sh
