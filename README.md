@@ -1,9 +1,21 @@
 # dativelm
-Code and data for the paper **Both Direct and Indirect Evidence Contribute to Dative Alternation Preferences in Language Models**
+Code and data for the COLM 2025 paper [**Both Direct and Indirect Evidence Contribute to Dative Alternation Preferences in Language Models**](https://arxiv.org/abs/2503.20850).
 
 For experiments and analyses, see the analysis folder.
 
-For data processing and training, see the following:
+All datasets and models are available on huggingface:
+- Model path: qing-yao/{**x**}_seed-{21,42,63}\_{1e-3}
+- Dataset path: datasets/qing-yao/datives-{**x**}
+  
+where **x**∈{strict_default, loose_default, strict_balanced, loose_balanced, swapped-datives, no-datives, no-2postverbal, short-first, random-first, long-first, long-first-headfinal}.
+
+The models can be retrained from the datasets with
+```
+bash scripts/train_autoreg.sh DATASET BASE_MODEL MODEL_NAME LR SEED EPOCHS
+```
+Make sure to modify scripts/train_autoreg.sh to specify GPU and huggingface token.
+
+To detect datives and generate training sets from scratch:
 1. Download BabyLM corpus without QED subtitles with 
 ```
 bash scripts/get_babylm.sh
@@ -24,8 +36,3 @@ bash scripts/create_alternants.sh data/train/datives
 ```
 bash scripts/write_train.sh
 ```
-6. Train models using 
-```
-bash scripts/train_autoreg.sh DATASET BASE_MODEL MODEL_NAME LR SEED EPOCHS
-```
-Modify scripts/train_autoreg.sh to specify GPU and huggingface token.
