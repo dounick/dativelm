@@ -1,0 +1,22 @@
+# Core training dependencies for train_autoreg.py
+# Updated 2025-12-04 to work with PyTorch 2.6 and latest transformers
+
+# Deep Learning Framework
+torch==2.6.0
+torchaudio==2.6.0
+torchvision==0.21.0
+
+# Transformers and Training
+transformers==4.52.4
+accelerate==1.12.0
+safetensors==0.7.0
+
+# Data and Evaluation
+datasets==3.3.2
+evaluate==0.4.3
+
+# Additional dependencies
+tokenizers==0.21.0
+numpy>=2.2.0
+pandas>=2.2.0
+tqdm>=4.66.0
